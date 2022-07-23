@@ -1,19 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gym_app/view/dashboard_page.dart';
-import 'package:flutter_gym_app/view/homepage.dart';
-import 'package:flutter_gym_app/view/signup_page.dart';
+import 'package:flutter_gym_app/view/dashboard.dart';
 
-void main(List<String> args) {
-  runApp(const MyApp());
+void main() {
+  runApp(const GymApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class GymApp extends StatelessWidget {
+  const GymApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: DashboardPage(),
+    return MaterialApp(
+      theme: ThemeData(
+        primaryColor: Colors.green[900],
+        buttonTheme: ButtonThemeData(
+          buttonColor: Colors.blueAccent[700],
+          textTheme: ButtonTextTheme.primary,
+        ),
+        colorScheme: ColorScheme.fromSwatch()
+            .copyWith(secondary: Colors.blueAccent[700]),
+      ),
+      home: const Dashboard(),
     );
   }
 }

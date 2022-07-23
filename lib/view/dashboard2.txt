@@ -1,0 +1,48 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_gym_app/components/h1_text.dart';
+
+class Dashboard extends StatefulWidget {
+  const Dashboard({Key? key}) : super(key: key);
+
+  @override
+  State<Dashboard> createState() => _DashboardPageState();
+}
+
+class _DashboardPageState extends State<Dashboard> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Image.asset('lib/assets/dumbbell.png'),
+            const H1Text(text: 'MEU TREINO'),
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Column(
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const TrainingList(),
+                      ));
+                    },
+                    child: Ink.image(
+                      image: const AssetImage(
+                        'lib/assets/circleavatar.jpg',
+                      ),
+                      height: 250,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
+        ),
+      ),
+      backgroundColor: Colors.green.shade400,
+    );
+  }
+}
